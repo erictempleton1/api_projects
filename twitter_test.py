@@ -4,8 +4,8 @@ import tweepy
 import json
 import config
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+auth = tweepy.OAuthHandler(config.CONSUMER_KEY, config.CONSUMER_SECRET)
+auth.set_access_token(config.ACCESS_TOKEN, config.ACCESS_TOKEN_SECRET)
 
 api = tweepy.API(auth)
 
@@ -16,3 +16,6 @@ for tweet in public_tweets[:5]:
     print tweet.favorite_count
     print tweet.retweeted
     print tweet.user.name.encode('utf-8')
+
+user_info = api.user_timeline('etemple10')
+
