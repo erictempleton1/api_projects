@@ -26,9 +26,14 @@ user_tweets = api.user_timeline('etemple10',count=200)
 large_tweets = [tweet.text.encode('utf-8') for tweet in user_tweets]
 print len(large_tweets)
 
+for tweet in user_tweets[:5]:
+    print tweet.text.encode('utf-8')
+    print tweet.favorited
+    print tweet.entities['urls']
+
 
 my_favd = api.retweets_of_me()
 
 # list of my favd tweets
 favd_tweets = [tweet.text.encode('utf-8') for tweet in my_favd]
-print favd_tweets
+print len(favd_tweets)
