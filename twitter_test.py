@@ -11,11 +11,24 @@ api = tweepy.API(auth)
 
 public_tweets = api.home_timeline()
 
+"""
 for tweet in public_tweets[:5]:
     print tweet.text.encode('utf-8')
     print tweet.favorite_count
     print tweet.retweeted
     print tweet.user.name.encode('utf-8')
+"""
 
-user_info = api.user_timeline('etemple10')
 
+user_tweets = api.user_timeline('etemple10',count=200)
+
+# list of 200 of my tweets
+large_tweets = [tweet.text.encode('utf-8') for tweet in user_tweets]
+print len(large_tweets)
+
+
+my_favd = api.retweets_of_me()
+
+# list of my favd tweets
+favd_tweets = [tweet.text.encode('utf-8') for tweet in my_favd]
+print favd_tweets
