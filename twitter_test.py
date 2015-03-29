@@ -28,8 +28,10 @@ print len(large_tweets)
 
 for tweet in user_tweets[:5]:
     print tweet.text.encode('utf-8')
+    print tweet.created_at
     print tweet.favorited
-    print tweet.entities['urls']
+    print tweet.entities['hashtags']
+    print tweet.retweet_count
 
 
 my_favd = api.retweets_of_me()
