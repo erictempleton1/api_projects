@@ -16,7 +16,6 @@ for tweet in public_tweets[:5]:
     print tweet.user.name.encode('utf-8')
 """
 
-
 user_tweets = api.user_timeline('etemple10',count=200)
 my_favd = api.retweets_of_me()
 
